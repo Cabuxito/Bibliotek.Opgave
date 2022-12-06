@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Bibliotek.Opgave;
+
+BiblioClass myBiblio = new BiblioClass("Sønderborg Bibliotek");
+
+Console.WriteLine(myBiblio.HentBibliotek());
+
