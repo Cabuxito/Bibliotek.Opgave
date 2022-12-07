@@ -8,13 +8,13 @@ namespace Bibliotek.Opgave
 {
     public class Laaner
     {
-        int _laanerNummer;
-        string _navn;
+        public int LaanerNummer { get; init; }
+        public string Navn { get; init; }
 
         public Laaner(int lannerNummer, string navn)
         {
-            _laanerNummer= lannerNummer;
-            _navn= navn;
+            LaanerNummer = lannerNummer;
+            Navn = navn;
         }
 
     }
