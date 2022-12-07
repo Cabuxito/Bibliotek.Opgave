@@ -4,7 +4,7 @@ namespace Bibliotek.Opgave
     public class BiblioClass
     {
         string _bibliotekNavn;
-        Laaner myLaaner;
+        List<Laaner> myLaaner = new();
 
         public BiblioClass(string bibliotekNavn)
         {
@@ -15,12 +15,12 @@ namespace Bibliotek.Opgave
 
         public void OpretLaaner(int lannerNummer, string navn)
         {
-           myLaaner = new(lannerNummer, navn);
+           myLaaner.Add(new Laaner (lannerNummer, navn));
         }
 
-        public string HentLaaner()
+        public List<Laaner> HentAlleLaaner()
         {
-            return String.Format($"Lånernummer: {myLaaner.LaanerNummer} - Navn: {myLaaner.Navn} er låner hos {_bibliotekNavn}");
+            return myLaaner;
         }
     }
 }
