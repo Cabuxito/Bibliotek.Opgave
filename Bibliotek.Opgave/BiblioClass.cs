@@ -20,7 +20,7 @@ namespace Bibliotek.Opgave
 
         public string HentLaaner()
         {
-            return String.Format($"Lånernummer: {myLaaner.}");
+            return String.Format($"Lånernummer: {myLaaner.LaanerNummer} - Navn: {myLaaner.Navn} er låner hos {_bibliotekNavn}");
         }
     }
 }
