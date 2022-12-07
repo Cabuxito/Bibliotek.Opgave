@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Bibliotek.Opgave
 {
-    public class Laaner
+    public class Laaner : Person
     {
         public int LaanerNummer { get; init; }
-        public string? Navn { get; init; }
 
-        public Laaner(int laanerNummer, string navn)
+        public Laaner(int laanerNummer, string navn, string email)
         {
             LaanerNummer = laanerNummer;
             Navn = navn;
+            Email = email;
         }
     }
 }
