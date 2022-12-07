@@ -16,6 +16,7 @@ namespace Bibliotek.Opgave
             _bibliotekNavn = bibliotekNavn;
         }
 
+        #region Methoder
         public string HentBibliotek() => String.Format($"Velkommen til {_bibliotekNavn} - datoen i dag er: {DateTime.Now.ToShortDateString()}");
 
         public string OpretLaaner(string navn, string email)
@@ -40,6 +41,24 @@ namespace Bibliotek.Opgave
                 return "Error: Ingen personer oprettet";
         }
 
+        public string HentLaanerById(int id)
+        {
+            if (_laaners.Count > 0)
+            {
+                Laaner? returnLaaner = _laaners.Find(x => x.LaanerNummer == _laanerNummer);
+                if (returnLaaner != null)
+                {
+                    string returnTekst = $"Lånernummer: {returnLaaner.LaanerNummer}\nNavn: {returnLaaner.Navn}\n" +
+                        $"Email: {returnLaaner.Email}\n";
+                }
+                return $"\nIngen bruger fundet med lånenummer {id}";
+            }
+            else
+                return "Der er ikke oprettet nogle bruger i system";
+        }
+        #endregion
+
+        #region ClearMethods
         public void Clear()
         {
             Console.WriteLine("Tryk på noget hvis du vil forsæt.");
@@ -64,5 +83,6 @@ namespace Bibliotek.Opgave
             Console.Clear();
             return loop;
         }
+        #endregion
     }
 }

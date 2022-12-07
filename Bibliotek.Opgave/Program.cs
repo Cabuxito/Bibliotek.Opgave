@@ -5,7 +5,7 @@ ConsoleKeyInfo input;
 BiblioClass myBiblio = new BiblioClass("Sønderborg Bibliotek");
 do
 {
-    Console.Write("V- Vis Bibliotekkekts navn og dato\nO- Opret Låner\nU- Udskriv Låner\nX- Afslut\nValg: ");
+    Console.Write("V- Vis Bibliotekkekts navn og dato\nO- Opret Låner\nU- Udskriv Låner\nF- Hent laaner by laanernummer\nX- Afslut\nValg: ");
     input = Console.ReadKey(true);
     Console.Clear();
     switch (input.Key)
@@ -29,6 +29,11 @@ do
         case ConsoleKey.U:
             Console.WriteLine(myBiblio.HentAlleLaaner());
             myBiblio.ForsætValg();
+            break;
+        case ConsoleKey.F:
+            Console.Write("LaanerNummer: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(myBiblio.HentLaanerById(id));
             break;
         case ConsoleKey.X:
             loop = false;
