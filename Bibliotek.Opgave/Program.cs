@@ -1,7 +1,4 @@
 ﻿using Bibliotek.Opgave;
-using System.Data;
-using System.Xml.XPath;
-
 
 bool loop = true;
 ConsoleKeyInfo input;
@@ -21,9 +18,11 @@ do
             {
                 Console.Write("Navn: ");
                 string? navn = Console.ReadLine();
-                if (!String.IsNullOrWhiteSpace(navn))
+                Console.Write("Email: ");
+                string? email = Console.ReadLine();
+                if (!String.IsNullOrWhiteSpace(navn) && !String.IsNullOrWhiteSpace(email))
                 {
-                    myBiblio.OpretLaaner(navn);
+                    myBiblio.OpretLaaner(navn, email);
                 }
             } while (myBiblio.ForsætValg());
             break;
@@ -35,6 +34,7 @@ do
             loop = false;
             break;
         default:
+            Console.WriteLine("Prøv igen.\n\n");
             break;
     }
 

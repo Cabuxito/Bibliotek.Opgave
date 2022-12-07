@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Bibliotek.Opgave
@@ -8,7 +9,7 @@ namespace Bibliotek.Opgave
         string _bibliotekNavn;
         List<Laaner> _laaners = new();
         int _laanerNummer;
-        
+
 
         public BiblioClass(string bibliotekNavn)
         {
@@ -17,11 +18,11 @@ namespace Bibliotek.Opgave
 
         public string HentBibliotek() => String.Format($"Velkommen til {_bibliotekNavn} - datoen i dag er: {DateTime.Now.ToShortDateString()}");
 
-        public string OpretLaaner(string navn)
+        public string OpretLaaner(string navn, string email)
         {
-            Laaner laaner = new Laaner(++_laanerNummer, navn);
+            Laaner laaner = new Laaner(++_laanerNummer, navn, email);
             _laaners.Add(laaner);
-            return String.Format($"\nLåner oprettet\nLånernummer: {laaner.LaanerNummer}\nNavn: {laaner.Navn}");
+            return String.Format($"\nLåner oprettet\nLånernummer: {laaner.LaanerNummer}\nNavn: {laaner.Navn}\nEmail: {laaner.Email}");
         }
 
         public string HentAlleLaaner()
@@ -31,7 +32,7 @@ namespace Bibliotek.Opgave
             {
                 foreach (var item in _laaners)
                 {
-                    laaners += $"Lånernummer: {item.LaanerNummer}\nNavn: {item.Navn}\n";
+                    laaners += $"Lånernummer: {item.LaanerNummer}\nNavn: {item.Navn}\nEmail: {item.Email}";
                 }
                 return laaners;
             }
@@ -46,16 +47,19 @@ namespace Bibliotek.Opgave
             Console.Clear();
         }
 
-        public bool ForsætValg() 
+        public bool ForsætValg()
         {
-            string forsæt;
+            string? forsæt;
             bool loop = true;
             Console.Write("Vil du forsæt? j/n: ");
             forsæt = Console.ReadLine();
-            if (forsæt.ToUpper() == "N" || forsæt.ToUpper() == "NEJ")
+            if (!String.IsNullOrWhiteSpace(forsæt))
             {
-                return loop = false;
-                Console.Clear();
+                if (forsæt.ToUpper() == "N" || forsæt.ToUpper() == "NEJ")
+                {
+                    return loop = false;
+                    Console.Clear();
+                }
             }
             Console.Clear();
             return loop;
