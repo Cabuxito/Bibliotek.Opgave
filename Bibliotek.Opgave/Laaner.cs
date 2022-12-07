@@ -9,13 +9,12 @@ namespace Bibliotek.Opgave
     public class Laaner
     {
         public int LaanerNummer { get; init; }
-        public string Navn { get; init; }
+        public string? Navn { get; init; }
 
-        public Laaner(int lannerNummer, string navn)
+        public Laaner(int laanerNummer, string navn)
         {
-            LaanerNummer = lannerNummer;
+            LaanerNummer = laanerNummer;
             Navn = navn;
         }
-
     }
 }
