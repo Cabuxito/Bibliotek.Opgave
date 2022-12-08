@@ -72,6 +72,18 @@ namespace Bibliotek.Opgave
             else
                 return "Der er ikke oprettet nogle bruger i system";
         }
+
+        public string SletLaanerById(int laanerNummer)
+        {
+            if (_laaners.Count > 0)
+            {
+                Laaner laaner = _laaners.Find(x => x.LaanerNummer == laanerNummer);
+                _laaners.Remove(laaner);
+                return $"\nBruger {laanerNummer} er blev slettet.";
+            }
+            else
+                return "Der er ikke oprettet nogle bruger i system";
+        }
         #endregion
 
         #region ClearMethods
