@@ -25,6 +25,7 @@ do
                     myBiblio.OpretLaaner(navn, email);
                 }
             } while (myBiblio.ForsætValg());
+            Console.Clear();
             break;
         case ConsoleKey.U:
             Console.WriteLine(myBiblio.HentAlleLaaner());
@@ -32,8 +33,8 @@ do
             break;
         case ConsoleKey.F:
             Console.Write("LaanerNummer: ");
-            int id = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(myBiblio.HentLaanerById(id));
+            int laanerNummer = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(myBiblio.HentLaanerById(laanerNummer));
             break;
         case ConsoleKey.X:
             loop = false;
@@ -42,5 +43,4 @@ do
             Console.WriteLine("Prøv igen.\n\n");
             break;
     }
-
 } while (loop);
