@@ -23,7 +23,7 @@ The program is a console application, where I did make a Bibliotek system fx: Cr
   <li> Feature v0.3: Create some methods that can print all laaners or create a new one, and add List<>. [✔️]</li> 
   <li> Feature v0.4: Implement a Menu and do it user interactive. [✔️]</li> 
   <li> Feature v0.5: After all the basic structure, and the program works, create another class person and use inheritance. [✔️]</li> 
-  <li> Feature v0.6: Create a method that get all laaners. [✔️]</li>
+  <li> Feature v0.6: Create a method that get one laaner by Id. [✔️]</li>
   <li> Feature v0.7: Create a method that delete one laaner by Id. [✔️]</li> 
 </ul>
 
