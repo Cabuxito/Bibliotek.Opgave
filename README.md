@@ -28,7 +28,7 @@ The program is a console application, where I did make a Bibliotek system fx: Cr
 
 ## Instructions
 
-!![image](https://user-images.githubusercontent.com/89253662/206442308-193d660f-e1f0-4588-b18d-c65c1ca7b81d.png)
+![image](https://user-images.githubusercontent.com/89253662/206442308-193d660f-e1f0-4588-b18d-c65c1ca7b81d.png)
 
 V- Show biblioteks name and todays dato.
 
