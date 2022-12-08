@@ -17,15 +17,25 @@ namespace Bibliotek.Opgave
         }
 
         #region Methoder
+        /// <summary>
+        /// Hent biblioteks navn og i dags dato.
+        /// </summary>
+        /// <returns>string der indholder navn og dato.</returns>
         public string HentBibliotek() => String.Format($"Velkommen til {_bibliotekNavn} - datoen i dag er: {DateTime.Now.ToShortDateString()}");
-
-        public string OpretLaaner(string navn, string email)
+        /// <summary>
+        /// Opret ny laaner.
+        /// </summary>
+        /// <param name="navn"></param>
+        /// <param name="email"></param>
+        public void OpretLaaner(string navn, string email)
         {
             Laaner laaner = new Laaner(++_laanerNummer, navn, email);
             _laaners.Add(laaner);
-            return String.Format($"\nLåner oprettet\nLånernummer: {laaner.LaanerNummer}\nNavn: {laaner.Navn}\nEmail: {laaner.Email}");
         }
-
+        /// <summary>
+        /// Henter alle laaner.
+        /// </summary>
+        /// <returns>string i table format, med laaners oplysninger.</returns>
         public string HentAlleLaaner()
         {
             string laaners = "";
@@ -33,15 +43,19 @@ namespace Bibliotek.Opgave
             {
                 foreach (var item in _laaners)
                 {
-                    laaners += $"Lånernummer: {item.LaanerNummer}\nNavn: {item.Navn}\nEmail: {item.Email}";
+                    laaners += $"Lånernummer: {item.LaanerNummer}\nNavn: {item.Navn}\nEmail: {item.Email}\n\n";
                 }
                 return laaners;
             }
             else
                 return "Error: Ingen personer oprettet";
         }
-
-        public string HentLaanerById(int id)
+        /// <summary>
+        /// Hent en laaner by laanernummer.
+        /// </summary>
+        /// <param name="laanerNummer"></param>
+        /// <returns>string med en specifik brugers oplysninger.</returns>
+        public string HentLaanerById(int laanerNummer)
         {
             if (_laaners.Count > 0)
             {
@@ -50,22 +64,22 @@ namespace Bibliotek.Opgave
                 {
                     string returnTekst = $"Lånernummer: {returnLaaner.LaanerNummer}\nNavn: {returnLaaner.Navn}\n" +
                         $"Email: {returnLaaner.Email}\n";
+                    return returnTekst;
                 }
-                return $"\nIngen bruger fundet med lånenummer {id}";
+                else
+                    return $"\nIngen bruger fundet med lånenummer {laanerNummer}";
             }
             else
                 return "Der er ikke oprettet nogle bruger i system";
+            return String.Empty;
         }
         #endregion
 
         #region ClearMethods
-        public void Clear()
-        {
-            Console.WriteLine("Tryk på noget hvis du vil forsæt.");
-            Console.ReadKey();
-            Console.Clear();
-        }
-
+        /// <summary>
+        /// methoden kontrollere hvis man vil forsæt eller ej.
+        /// </summary>
+        /// <returns>nej = false | ja  = true</returns>
         public bool ForsætValg()
         {
             string? forsæt;
