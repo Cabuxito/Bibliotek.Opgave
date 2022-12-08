@@ -21,7 +21,7 @@ namespace Bibliotek.Opgave
         /// Hent biblioteks navn og i dags dato.
         /// </summary>
         /// <returns>string der indholder navn og dato.</returns>
-        public string HentBibliotek() => String.Format($"Velkommen til {_bibliotekNavn} - datoen i dag er: {DateTime.Now.ToShortDateString()}");
+        public string HentBibliotek() => String.Format($"Velkommen til {_bibliotekNavn} - datoen i dag er: {DateTime.Now.ToShortDateString()}\n\n");
         /// <summary>
         /// Opret ny laaner.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Bibliotek.Opgave
         {
             if (_laaners.Count > 0)
             {
-                Laaner? returnLaaner = _laaners.Find(x => x.LaanerNummer == _laanerNummer);
+                Laaner? returnLaaner = _laaners.Find(x => x.LaanerNummer == laanerNummer);
                 if (returnLaaner != null)
                 {
                     string returnTekst = $"Lånernummer: {returnLaaner.LaanerNummer}\nNavn: {returnLaaner.Navn}\n" +
@@ -71,7 +71,6 @@ namespace Bibliotek.Opgave
             }
             else
                 return "Der er ikke oprettet nogle bruger i system";
-            return String.Empty;
         }
         #endregion
 
@@ -84,14 +83,14 @@ namespace Bibliotek.Opgave
         {
             string? forsæt;
             bool loop = true;
-            Console.Write("Vil du forsæt? j/n: ");
+            Console.Write("Prøv ingen? J/N: ");
             forsæt = Console.ReadLine();
             if (!String.IsNullOrWhiteSpace(forsæt))
             {
                 if (forsæt.ToUpper() == "N" || forsæt.ToUpper() == "NEJ")
                 {
-                    return loop = false;
                     Console.Clear();
+                    return loop = false;
                 }
             }
             Console.Clear();
