@@ -38,6 +38,14 @@ do
                 Console.WriteLine(myBiblio.HentLaanerById(laanerNummer));
             } while (myBiblio.ForsætValg());
             break;
+        case ConsoleKey.S:
+            do
+            {
+                Console.Write("LaanerNummer: ");
+                int laanerNummer = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(myBiblio.SletLaanerById(laanerNummer));
+            } while (myBiblio.ForsætValg());
+            break;
         case ConsoleKey.X:
             loop = false;
             break;
